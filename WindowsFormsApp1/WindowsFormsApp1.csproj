@@ -93,6 +93,12 @@
     <Compile Include="Stocks.Designer.cs">
       <DependentUpon>Stocks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stocks_Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stocks_Reports.Designer.cs">
+      <DependentUpon>Stocks_Reports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stock_Item.cs" />
     <Compile Include="Supplier.cs" />
     <Compile Include="Suppliers.cs">
@@ -109,6 +115,12 @@
       <DependentUpon>Supply_Permissions.cs</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs" />
+    <Compile Include="Transfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transfer.Designer.cs">
+      <DependentUpon>Transfer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Customers.resx">
       <DependentUpon>Customers.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,11 +142,17 @@
     <EmbeddedResource Include="Stocks.resx">
       <DependentUpon>Stocks.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stocks_Reports.resx">
+      <DependentUpon>Stocks_Reports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Suppliers.resx">
       <DependentUpon>Suppliers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Supply_Permissions.resx">
       <DependentUpon>Supply_Permissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer.resx">
+      <DependentUpon>Transfer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

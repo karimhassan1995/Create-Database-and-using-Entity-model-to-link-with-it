@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
         {
            Item i = model.Items.Find(int.Parse(textBox1.Text));
             if (i != null)
-            {
+            { 
                 if (textBox2.Text != " " && textBox3.Text != " ")
                 {
                     i.Item_Name = textBox2.Text;

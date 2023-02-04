@@ -52,5 +52,17 @@ namespace WindowsFormsApp1
             Dispence_Permissions dp = new Dispence_Permissions();
             DialogResult dialogResult= dp.ShowDialog();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Transfer T = new Transfer();
+            DialogResult dialogResult = T.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Stocks_Reports sr = new Stocks_Reports();
+            DialogResult dialogResult= sr.ShowDialog();
+        }
     }
 }
