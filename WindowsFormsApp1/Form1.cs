@@ -64,5 +64,11 @@ namespace WindowsFormsApp1
             Stocks_Reports sr = new Stocks_Reports();
             DialogResult dialogResult= sr.ShowDialog();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Items_Reports ir = new Items_Reports();
+            DialogResult dialogResult= ir.ShowDialog();
+        }
     }
 }
