@@ -76,5 +76,11 @@ namespace WindowsFormsApp1
             Items_Movement im = new Items_Movement();
             DialogResult dialogResult = im.ShowDialog();
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Knowing_Duration kn = new Knowing_Duration();
+            DialogResult dialogResult= kn.ShowDialog();
+        }
     }
 }
