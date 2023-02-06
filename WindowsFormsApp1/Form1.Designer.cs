@@ -125,9 +125,9 @@
             // 
             this.button9.Location = new System.Drawing.Point(384, 47);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.Size = new System.Drawing.Size(81, 23);
             this.button9.TabIndex = 8;
-            this.button9.Text = "button9";
+            this.button9.Text = "Item_Reports";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
@@ -135,10 +135,11 @@
             // 
             this.button10.Location = new System.Drawing.Point(374, 106);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.Size = new System.Drawing.Size(110, 23);
             this.button10.TabIndex = 9;
-            this.button10.Text = "button10";
+            this.button10.Text = "Items_movement";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 

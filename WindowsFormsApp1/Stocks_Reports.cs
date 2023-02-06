@@ -30,41 +30,38 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime x = Convert.ToDateTime(textBox1.Text);
-            DateTime y = Convert.ToDateTime(textBox2.Text);
-            int r = int.Parse(comboBox1.Text);
-           /* if (textBox1.Text != ""&& textBox2.Text != "")
+            if (textBox1.Text == "" || textBox2.Text == "")
             {
-                 x 
-                 y 
+                MessageBox.Show("Warning: Missing date");
             }
-            else {
-                MessageBox.Show("reput the date");
-            }*/
-            var Stocks = (from sp in model.Supply_permission
-                          join s in model.Stocks
-                          on sp.Stock_Id equals s.Stock_Id
-                          join si in model.Stock_Item
-                          on s.Stock_Id equals si.Stock_id
-                          join i in model.Items
-                          on si.Item_id equals i.Item_Id
-                          /* where sp.permission_Date >= DateTime.ParseExact(textBox1.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture) && sp.permission_Date <= DateTime.ParseExact(textBox2.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture)*/
-                          /*  where sp.permission_Date >= Convert.ToDateTime(textBox1.Text) && sp.permission_Date <= Convert.ToDateTime(textBox2.Text)*/
-                          where sp.permission_Date >= x && sp.permission_Date <= y  && si.Stock_id == r
-                          select new
-                          {
-                              Stock_ID = si.Stock_id,
-                              Stock_Name = s.Stock_Name,
-                              item_ID = si.Item_id,
-                              Item_Name = i.Item_Name,
-                              quantity = si.Quantity,
-                              production_Date = sp.production_Date,
-                              Expiary_Date = sp.Expiray_Date
-                          });
-            listBox1.Items.Clear();
-            foreach (var stoc in Stocks)
+            else
             {
-                listBox1.Items.Add(stoc.Stock_ID + " " + stoc.Stock_Name + " " + stoc.item_ID + " " + stoc.Item_Name+" "+stoc.quantity+" "+stoc.production_Date+" "+stoc.Expiary_Date);
+                DateTime x = Convert.ToDateTime(textBox1.Text);
+                DateTime y = Convert.ToDateTime(textBox2.Text);
+                int r = int.Parse(comboBox1.Text);
+                var Stocks = (from sp in model.Supply_permission
+                              join s in model.Stocks
+                              on sp.Stock_Id equals s.Stock_Id
+                              join si in model.Stock_Item
+                              on new {p1= sp.Stock_Id, p2=sp.Item_Id} equals new {p1= si.Stock_id,p2= si.Item_id}
+                              join i in model.Items
+                              on si.Item_id equals i.Item_Id
+                              where sp.permission_Date >= x && sp.permission_Date <= y && si.Stock_id == r
+                              select new
+                              {
+                                  Stock_ID = si.Stock_id,
+                                  Stock_Name = s.Stock_Name,
+                                  item_ID = si.Item_id,
+                                  Item_Name = i.Item_Name,
+                                  quantity = si.Quantity,
+                                  production_Date = sp.production_Date,
+                                  Expiary_Date = sp.Expiray_Date
+                              });
+                listBox1.Items.Clear();
+                foreach (var stoc in Stocks)
+                {
+                    listBox1.Items.Add("Thr Stock with id "+ stoc.Stock_ID + " and name " + stoc.Stock_Name + " has item with id  " + stoc.item_ID + " and name " + stoc.Item_Name + " with quantaty " + stoc.quantity + " and production_date " + stoc.production_Date + " expiary_date " + stoc.Expiary_Date);
+                }
             }
         }
     }

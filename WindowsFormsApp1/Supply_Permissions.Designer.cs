@@ -48,11 +48,11 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -87,6 +87,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -232,6 +233,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Item";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(161, 38);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "ADD";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -269,16 +280,6 @@
             this.label11.Size = new System.Drawing.Size(300, 13);
             this.label11.TabIndex = 25;
             this.label11.Text = "if item you want to add not exist in comobox .. Plz Add it first";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(161, 38);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "ADD";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button3
             // 

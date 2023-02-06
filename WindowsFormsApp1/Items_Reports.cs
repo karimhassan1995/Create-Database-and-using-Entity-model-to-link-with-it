@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
                                       join s in model.Stocks
                                       on sp.Stock_Id equals s.Stock_Id
                                       join si in model.Stock_Item
-                                      on s.Stock_Id equals si.Stock_id
+                                      on new { p1 = sp.Stock_Id, p2 = sp.Item_Id } equals new { p1 = si.Stock_id, p2 = si.Item_id }
                                       join i in model.Items
                                       on si.Item_id equals i.Item_Id
                                       where sp.permission_Date >= x && sp.permission_Date <= y && si.Item_id == r && si.Stock_id == p
@@ -78,10 +78,11 @@ namespace WindowsFormsApp1
                         listBox1.Items.Clear();
                         foreach (var ii in Items1)
                         {
-                            listBox1.Items.Add(ii.Stock_ID + " " + ii.Stock_Name + " " + ii.item_ID + " " + ii.Item_Name + " " + ii.quantity + " " + ii.production_Date + " " + ii.Expiary_Date);
+                            listBox1.Items.Add(ii.Stock_ID +" " + ii.Stock_Name + " " + ii.item_ID + " " + ii.Item_Name + " " + ii.quantity + " " + ii.production_Date + " " + ii.Expiary_Date);
                         }
                     }
                 }
+                else if (comboBox2.Text == "" && comboBox3.Text == ""&& comboBox4.Text == "") { MessageBox.Show("you need to choose a stock"); }
                 else if (comboBox1.Text != "" && comboBox2.Text == "" && comboBox3.Text != "" && comboBox4.Text == "")
                 {
                         if (textBox1.Text == "" || textBox2.Text == "")
@@ -98,7 +99,7 @@ namespace WindowsFormsApp1
                                           join s in model.Stocks
                                           on sp.Stock_Id equals s.Stock_Id
                                           join si in model.Stock_Item
-                                          on s.Stock_Id equals si.Stock_id
+                                          on new { p1 = sp.Stock_Id, p2 = sp.Item_Id } equals new { p1 = si.Stock_id, p2 = si.Item_id }
                                           join i in model.Items
                                           on si.Item_id equals i.Item_Id
                                           where sp.permission_Date >= x && sp.permission_Date <= y && si.Item_id == r && si.Stock_id == p
@@ -135,7 +136,7 @@ namespace WindowsFormsApp1
                                   join s in model.Stocks
                                   on sp.Stock_Id equals s.Stock_Id
                                   join si in model.Stock_Item
-                                  on s.Stock_Id equals si.Stock_id
+                                  on new { p1 = sp.Stock_Id, p2 = sp.Item_Id } equals new { p1 = si.Stock_id, p2 = si.Item_id }
                                   join i in model.Items
                                   on si.Item_id equals i.Item_Id
                                   where sp.permission_Date >= x && sp.permission_Date <= y && si.Item_id == r && si.Stock_id == p
@@ -173,7 +174,7 @@ namespace WindowsFormsApp1
                                   join s in model.Stocks
                                   on sp.Stock_Id equals s.Stock_Id
                                   join si in model.Stock_Item
-                                  on s.Stock_Id equals si.Stock_id
+                                  on new { p1 = sp.Stock_Id, p2 = sp.Item_Id } equals new { p1 = si.Stock_id, p2 = si.Item_id }
                                   join i in model.Items
                                   on si.Item_id equals i.Item_Id
                                   where sp.permission_Date >= x && sp.permission_Date <= y && si.Item_id == r && (si.Stock_id == p || si.Stock_id == g)
@@ -211,7 +212,7 @@ namespace WindowsFormsApp1
                                   join s in model.Stocks
                                   on sp.Stock_Id equals s.Stock_Id
                                   join si in model.Stock_Item
-                                  on s.Stock_Id equals si.Stock_id
+                                  on new { p1 = sp.Stock_Id, p2 = sp.Item_Id } equals new { p1 = si.Stock_id, p2 = si.Item_id }
                                   join i in model.Items
                                   on si.Item_id equals i.Item_Id
                                   where sp.permission_Date >= x && sp.permission_Date <= y && si.Item_id == r && (si.Stock_id == p || si.Stock_id == g)
@@ -248,7 +249,7 @@ namespace WindowsFormsApp1
                                       join s in model.Stocks
                                       on sp.Stock_Id equals s.Stock_Id
                                       join si in model.Stock_Item
-                                      on s.Stock_Id equals si.Stock_id
+                                      on new { p1 = sp.Stock_Id, p2 = sp.Item_Id } equals new { p1 = si.Stock_id, p2 = si.Item_id }
                                       join i in model.Items
                                       on si.Item_id equals i.Item_Id
                                       where sp.permission_Date >= x && sp.permission_Date <= y && si.Item_id == r && (si.Stock_id == p || si.Stock_id == g)
@@ -287,7 +288,7 @@ namespace WindowsFormsApp1
                                   join s in model.Stocks
                                   on sp.Stock_Id equals s.Stock_Id
                                   join si in model.Stock_Item
-                                  on s.Stock_Id equals si.Stock_id
+                                  on new { p1 = sp.Stock_Id, p2 = sp.Item_Id } equals new { p1 = si.Stock_id, p2 = si.Item_id }
                                   join i in model.Items
                                   on si.Item_id equals i.Item_Id
                                   where sp.permission_Date >= x && sp.permission_Date <= y && si.Item_id == r && (si.Stock_id == p || si.Stock_id == g || si.Stock_id == Fourth_Stock_Input)

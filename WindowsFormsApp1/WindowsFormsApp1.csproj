@@ -75,6 +75,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HOPE.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Items.cs">
       <SubType>Form</SubType>
@@ -87,6 +88,18 @@
     </Compile>
     <Compile Include="Items_Reports.Designer.cs">
       <DependentUpon>Items_Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items_Movement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items_Movement.Designer.cs">
+      <DependentUpon>Items_Movement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Knowing_Duration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Knowing_Duration.Designer.cs">
+      <DependentUpon>Knowing_Duration.cs</DependentUpon>
     </Compile>
     <Compile Include="Measuring_unit.cs" />
     <Compile Include="Model1.cs" />
@@ -130,11 +143,17 @@
     <EmbeddedResource Include="Customers.resx">
       <DependentUpon>Customers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dispence_Permissions.resx">
+      <DependentUpon>Dispence_Permissions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items.resx">
       <DependentUpon>Items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items_Movement.resx">
+      <DependentUpon>Items_Movement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items_Reports.resx">
       <DependentUpon>Items_Reports.cs</DependentUpon>

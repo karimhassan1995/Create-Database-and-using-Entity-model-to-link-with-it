@@ -70,5 +70,11 @@ namespace WindowsFormsApp1
             Items_Reports ir = new Items_Reports();
             DialogResult dialogResult= ir.ShowDialog();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Items_Movement im = new Items_Movement();
+            DialogResult dialogResult = im.ShowDialog();
+        }
     }
 }
