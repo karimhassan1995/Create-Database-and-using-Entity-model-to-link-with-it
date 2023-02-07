@@ -82,5 +82,11 @@ namespace WindowsFormsApp1
             Knowing_Duration kn = new Knowing_Duration();
             DialogResult dialogResult= kn.ShowDialog();
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Expired_Items  EI = new Expired_Items();
+            DialogResult dialogResult= EI.ShowDialog();
+        }
     }
 }

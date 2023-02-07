@@ -69,6 +69,12 @@
     <Compile Include="Dispence_Permissions.Designer.cs">
       <DependentUpon>Dispence_Permissions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Expired_Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expired_Items.Designer.cs">
+      <DependentUpon>Expired_Items.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dispence_Permissions.resx">
       <DependentUpon>Dispence_Permissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expired_Items.resx">
+      <DependentUpon>Expired_Items.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
