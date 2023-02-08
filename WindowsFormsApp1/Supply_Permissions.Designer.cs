@@ -374,7 +374,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.Name = "Supply_Permissions";
-            this.Text = "Expiary_Date";
+            this.Text = "Supply permissions";
             this.Load += new System.EventHandler(this.Supply_Permissions_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

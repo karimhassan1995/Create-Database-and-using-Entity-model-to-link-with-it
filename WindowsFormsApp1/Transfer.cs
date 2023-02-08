@@ -21,10 +21,14 @@ namespace WindowsFormsApp1
         private void Transfer_Load(object sender, EventArgs e)
         {
 
-            foreach(Stock s in model.Stocks)
+            foreach(Stock_Item s in model.Stock_Item)
             {
-                comboBox1.Items.Add(s.Stock_Id );
-                comboBox3.Items.Add(s.Stock_Id);
+                comboBox1.Items.Add(s.Stock_id );
+               
+            }
+            foreach(Stock s1 in model.Stocks)
+            {
+                comboBox3.Items.Add(s1.Stock_Id);
             }
  
         }
@@ -58,11 +62,11 @@ namespace WindowsFormsApp1
         {
             comboBox2.Items.Clear();
             int STOCK_ID = int.Parse(comboBox1.Text);
-            foreach (Supply_permission sp in model.Supply_permission)
+            foreach (Stock_Item sp in model.Stock_Item)
             {
-                if (sp.Stock_Id == STOCK_ID)
+                if (sp.Stock_id == STOCK_ID)
                 {
-                    comboBox2.Items.Add(sp.Item_Id);
+                    comboBox2.Items.Add(sp.Item_id);
                 }
             }
         }
@@ -111,6 +115,13 @@ namespace WindowsFormsApp1
                     model.SaveChanges();
                     comboBox4.Text = comboBox5.Text = comboBox6.Text = textBox2.Text = comboBox1.Text = comboBox2.Text = comboBox3.Text = textBox1.Text="";
                     MessageBox.Show("the transfer is completed");
+                    listBox1.Items.Clear();
+                    foreach (Stock_Item SI in model.Stock_Item)
+                    {
+
+                        listBox1.Items.Add("The Stock with id = " + SI.Stock_id + " and name = " + SI.Stock.Stock_Name + " has an item with id = " + SI.Item_id + " and name = " + SI.Item.Item_Name + " and quantaty = " + SI.Quantity);
+
+                    }
                 }
                 else { MessageBox.Show("the Dispence permission is already existed"); }
             }

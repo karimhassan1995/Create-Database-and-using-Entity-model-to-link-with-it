@@ -49,6 +49,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -219,9 +222,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(48, 294);
+            this.button2.Location = new System.Drawing.Point(173, 383);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 36);
             this.button2.TabIndex = 6;
             this.button2.Text = "DISPLAY";
             this.button2.UseVisualStyleBackColor = true;
@@ -253,11 +256,47 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Permission_Id";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Red;
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label9.Location = new System.Drawing.Point(31, 277);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(232, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "WARNING: to transfer item form stock to stock";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Red;
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(31, 292);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(229, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "the program will dispence it from the old stock ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Red;
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label11.Location = new System.Drawing.Point(31, 310);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(155, 13);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "then supply it to the new stock";
+            // 
             // Transfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
@@ -271,6 +310,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -297,5 +337,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }

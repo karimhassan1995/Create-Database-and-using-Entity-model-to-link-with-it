@@ -38,7 +38,7 @@ namespace WindowsFormsApp1
         {
 
             Supply_permission newsupply = new Supply_permission();
-            if (textBox3 != null && textBox4 != null && textBox5 != null && comboBox1 != null && comboBox2 != null && comboBox3 != null)
+            if (textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "" && comboBox1.Text != "" && comboBox2.Text != "" && comboBox3.Text != "")
             {
                 Supply_permission supply = null;
                 foreach (Supply_permission sp in model.Supply_permission)
@@ -48,21 +48,33 @@ namespace WindowsFormsApp1
                         supply = sp;
                     }
                 }
-                if (supply == null)
+                Boolean flag= true;
+                foreach(Item i in model.Items)
                 {
-                    newsupply.Stock_Id = int.Parse(comboBox1.Text);
-                    newsupply.Item_Id = int.Parse(comboBox2.Text);
-                    newsupply.Supplier_Id = int.Parse(comboBox3.Text);
-                    newsupply.permission_Id = int.Parse(textBox3.Text);
-                    newsupply.Quantity = int.Parse(textBox4.Text);
-                    newsupply.permission_Date = DateTime.Now;
-                    newsupply.production_Date = Convert.ToDateTime(textBox5.Text);
-                    newsupply.Expiray_Date = Convert.ToDateTime(textBox1.Text);
-                    model.Supply_permission.Add(newsupply);
-                    model.SaveChanges();
-                    textBox1.Text = textBox3.Text = textBox4.Text = textBox5.Text = comboBox1.Text = comboBox2.Text = comboBox3.Text = "";
+                    if (i.Item_Id == int.Parse(comboBox2.Text))
+                    {
+                        flag = false;
+                    }
                 }
-                else { MessageBox.Show("thecustomer is already existed"); }
+                if (flag == false)
+                {
+                    if (supply == null)
+                    {
+                        newsupply.Stock_Id = int.Parse(comboBox1.Text);
+                        newsupply.Item_Id = int.Parse(comboBox2.Text);
+                        newsupply.Supplier_Id = int.Parse(comboBox3.Text);
+                        newsupply.permission_Id = int.Parse(textBox3.Text);
+                        newsupply.Quantity = int.Parse(textBox4.Text);
+                        newsupply.permission_Date = DateTime.Now;
+                        newsupply.production_Date = Convert.ToDateTime(textBox5.Text);
+                        newsupply.Expiray_Date = Convert.ToDateTime(textBox1.Text);
+                        model.Supply_permission.Add(newsupply);
+                        model.SaveChanges();
+                        textBox1.Text = textBox3.Text = textBox4.Text = textBox5.Text = comboBox1.Text = comboBox2.Text = comboBox3.Text = "";
+                    }
+                    else { MessageBox.Show("thecustomer is already existed"); }
+                }
+                else { MessageBox.Show("the item id is not exist in table items"); }
             }
             else { MessageBox.Show("Fill all the Rexquired info"); }
         }
@@ -74,6 +86,7 @@ namespace WindowsFormsApp1
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+
             Item item = new Item();
             if (textBox2.Text != "" && textBox6.Text != "" && textBox7.Text != "")
             {
@@ -108,51 +121,61 @@ namespace WindowsFormsApp1
         private void button4_Click(object sender, EventArgs e)
         {
             Supply_permission supply = null;
-            foreach (Supply_permission sp in model.Supply_permission)
+            if (textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "" && comboBox1.Text != "" && comboBox2.Text != "" && comboBox3.Text != "")
             {
-                if (sp.Stock_Id == int.Parse(comboBox1.Text) && sp.Item_Id == int.Parse(comboBox2.Text) && sp.Supplier_Id == int.Parse(comboBox3.Text) && sp.permission_Id == int.Parse(textBox3.Text))
-                {
-                    supply = sp;
-                }
-            }
-            if (supply != null)
-            {
-               
-                supply.production_Date = Convert.ToDateTime(textBox5.Text);
-                supply.Expiray_Date = Convert.ToDateTime(textBox1.Text);
-                model.SaveChanges();
-                MessageBox.Show("YOUR SUPPLU IS UPDATED");
-                textBox1.Text = textBox3.Text = textBox4.Text = textBox5.Text = comboBox1.Text = comboBox2.Text = comboBox3.Text = "";
-                listBox1.Items.Clear();
                 foreach (Supply_permission sp in model.Supply_permission)
                 {
-                    listBox1.Items.Add(sp.Stock_Id + " " + sp.Item_Id + " " + sp.Supplier_Id + " " + sp.permission_Id + " " + sp.Quantity + " " + sp.permission_Date + " " + sp.production_Date + " " + sp.Expiray_Date);
+                    if (sp.Stock_Id == int.Parse(comboBox1.Text) && sp.Item_Id == int.Parse(comboBox2.Text) && sp.Supplier_Id == int.Parse(comboBox3.Text) && sp.permission_Id == int.Parse(textBox3.Text))
+                    {
+                        supply = sp;
+                    }
                 }
+                if (supply != null)
+                {
+
+                    supply.production_Date = Convert.ToDateTime(textBox5.Text);
+                    supply.Expiray_Date = Convert.ToDateTime(textBox1.Text);
+                    model.SaveChanges();
+                    MessageBox.Show("YOUR SUPPLy IS UPDATED");
+                    textBox1.Text = textBox3.Text = textBox4.Text = textBox5.Text = comboBox1.Text = comboBox2.Text = comboBox3.Text = "";
+                    listBox1.Items.Clear();
+                    foreach (Supply_permission sp in model.Supply_permission)
+                    {
+                        listBox1.Items.Add(sp.Stock_Id + " " + sp.Item_Id + " " + sp.Supplier_Id + " " + sp.permission_Id + " " + sp.Quantity + " " + sp.permission_Date + " " + sp.production_Date + " " + sp.Expiray_Date);
+                    }
+                }
+                else { MessageBox.Show("the id of item you want to update is not here"); }
             }
+            else { MessageBox.Show("Fill all the Rexquired info"); }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             Supply_permission supply = null;
-            foreach (Supply_permission sp in model.Supply_permission)
+            if (textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "" && comboBox1.Text != "" && comboBox2.Text != "" && comboBox3.Text != "")
             {
-                if (sp.Stock_Id == int.Parse(comboBox1.Text) && sp.Item_Id == int.Parse(comboBox2.Text) && sp.Supplier_Id == int.Parse(comboBox3.Text) && sp.permission_Id == int.Parse(textBox3.Text))
-                {
-                    supply = sp;
-                }
-            }
-            if (supply != null)
-            {
-                model.Supply_permission.Remove(supply);
-                model.SaveChanges();
-                MessageBox.Show("YOUR ROW IS DELETED");
-                listBox1.Items.Clear();
-                textBox1.Text = textBox3.Text = textBox4.Text = textBox5.Text = comboBox1.Text = comboBox2.Text = comboBox3.Text = "";
                 foreach (Supply_permission sp in model.Supply_permission)
                 {
-                    listBox1.Items.Add(sp.Stock_Id + " " + sp.Item_Id + " " + sp.Supplier_Id + " " + sp.permission_Id + " " + sp.Quantity + " " + sp.permission_Date + " " + sp.production_Date + " " + sp.Expiray_Date);
+                    if (sp.Stock_Id == int.Parse(comboBox1.Text) && sp.Item_Id == int.Parse(comboBox2.Text) && sp.Supplier_Id == int.Parse(comboBox3.Text) && sp.permission_Id == int.Parse(textBox3.Text))
+                    {
+                        supply = sp;
+                    }
                 }
+                if (supply != null)
+                {
+                    model.Supply_permission.Remove(supply);
+                    model.SaveChanges();
+                    MessageBox.Show("YOUR ROW IS DELETED");
+                    listBox1.Items.Clear();
+                    textBox1.Text = textBox3.Text = textBox4.Text = textBox5.Text = comboBox1.Text = comboBox2.Text = comboBox3.Text = "";
+                    foreach (Supply_permission sp in model.Supply_permission)
+                    {
+                        listBox1.Items.Add(sp.Stock_Id + " " + sp.Item_Id + " " + sp.Supplier_Id + " " + sp.permission_Id + " " + sp.Quantity + " " + sp.permission_Date + " " + sp.production_Date + " " + sp.Expiray_Date);
+                    }
+                }
+                else { MessageBox.Show("the id of item you want to delete is not here"); }
             }
+            else { MessageBox.Show("Fill all the Rexquired info"); }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

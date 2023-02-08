@@ -31,7 +31,7 @@ namespace WindowsFormsApp1
        private void button2_Click(object sender, EventArgs e)
         {
           Item item = new Item();
-            if (textBox1 != null && textBox2 != null && textBox3 != null)
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "")
             {
                 Item i = model.Items.Find(int.Parse(textBox1.Text));
                 if (i == null)
@@ -59,9 +59,10 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-           Item i = model.Items.Find(int.Parse(textBox1.Text));
-            if (i != null)
-            { 
+           
+            if (textBox1.Text!="")
+            {
+                Item i = model.Items.Find(int.Parse(textBox1.Text));
                 if (textBox2.Text != " " && textBox3.Text != " ")
                 {
                     i.Item_Name = textBox2.Text;
@@ -82,10 +83,10 @@ namespace WindowsFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Item i = model.Items.Find(int.Parse(textBox1.Text));
-            if (i != null)
+            
+            if (textBox1.Text!="")
             {
-
+                Item i = model.Items.Find(int.Parse(textBox1.Text));
                 foreach (Stock_Item ii in model.Stock_Item)
                 {
                     if (ii.Item_id == i.Item_Id)
@@ -118,6 +119,7 @@ namespace WindowsFormsApp1
                     listBox1.Items.Add(i3.Item_Id + "   " + i3.Item_Name + "    " + i3.Measuring_unit.unit);
                 }
             }
+            else { MessageBox.Show("fill the id "); }
         }
 
         private void Items_Load(object sender, EventArgs e)

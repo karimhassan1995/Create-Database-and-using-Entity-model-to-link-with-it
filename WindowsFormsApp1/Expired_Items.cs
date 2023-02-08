@@ -40,7 +40,7 @@ namespace WindowsFormsApp1
                               on new { p1 = sp.Stock_Id, p2 = sp.Item_Id } equals new { p1 = si.Stock_id, p2 = si.Item_id }
                               join i in model.Items
                               on si.Item_id equals i.Item_Id
-                              where DbFunctions.DiffDays(sp.permission_Date, date) <= 120 && si.Stock_id == STOCK_ID
+                              where DbFunctions.DiffDays(date ,sp.Expiray_Date) <= 120 && si.Stock_id == STOCK_ID
                               select new
                               {
                                   Stock_ID = si.Stock_id,
@@ -50,16 +50,21 @@ namespace WindowsFormsApp1
                                   quantity = si.Quantity,
                                   production_Date = sp.production_Date,
                                   Expiary_Date = sp.Expiray_Date,
-                                  Remains_days_to_expire = DbFunctions.DiffDays(sp.Expiray_Date, date)
+                                  Remains_days_to_expire = DbFunctions.DiffDays(date ,sp.Expiray_Date)
                               });
                 listBox1.Items.Clear();
                 foreach (var stoc in report)
                 {
                     listBox1.Items.Add("Item with id " + stoc.item_ID + " and name " + stoc.Item_Name + " in Stock number  " + stoc.Stock_ID + " and name " + stoc.Stock_Name + " with quantaty " + stoc.quantity + " and production_date " + stoc.production_Date );
-                    listBox1.Items.Add(" and expiary_date " + stoc.Expiary_Date + " and number of days that remains to expire = " + stoc.Remains_days_to_expire);
+                    if (stoc.Remains_days_to_expire > 0)
+                    {
+                        listBox1.Items.Add(" and expiary_date " + stoc.Expiary_Date + " and number of days that remains to expire = " + stoc.Remains_days_to_expire);
+                    }
+                    else if(stoc.Remains_days_to_expire <0) { listBox1.Items.Add(" and the item expired"); }
+                   
                 }
             }
-            else { MessageBox.Show("Plz enter the info"); }
+            else { MessageBox.Show("Plz enter the id"); }
         }
     }
 }

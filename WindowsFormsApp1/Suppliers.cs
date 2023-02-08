@@ -21,16 +21,16 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            foreach (Supplier s in model.Suppliers)
+            foreach (Supplier sup in model.Suppliers)
             {
-                listBox1.Items.Add(s.Supplier_Id + "  " + s.Supplier_Name + "  " + s.phone + "  " + s.fax+"  "+s.mobile+"  "+s.mail+"  "+s.website);
+                listBox1.Items.Add(sup.Supplier_Id + "  " + sup.Supplier_Name + "  " + sup.phone + "  " + sup.fax+"  "+sup.mobile+"  "+sup.mail+"  "+sup.website);
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Supplier supplier = new Supplier();
-            if (textBox2 != null && textBox3 != null && textBox4 != null && textBox5 != null && textBox4 != null && textBox7 != null)
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "" && textBox7.Text != "")
             {
                 Supplier s = model.Suppliers.Find(int.Parse(textBox1.Text));
                 if (s == null)
@@ -45,6 +45,11 @@ namespace WindowsFormsApp1
                     model.Suppliers.Add(supplier);
                     model.SaveChanges();
                     textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text = textBox6.Text= textBox7.Text= "";
+                    listBox1.Items.Clear();
+                    foreach (Supplier sup in model.Suppliers)
+                    {
+                        listBox1.Items.Add(sup.Supplier_Id + "  " + sup.Supplier_Name + "  " + sup.phone + "  " + sup.fax + "  " + sup.mobile + "  " + sup.mail + "  " + sup.website);
+                    }
                 }
                 else { MessageBox.Show("the Supplier is already exist"); }
             }
@@ -53,9 +58,10 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Supplier s = model.Suppliers.Find(int.Parse(textBox1.Text));
-            if (s != null)
+            
+            if (textBox1.Text != "")
             {
+                Supplier s = model.Suppliers.Find(int.Parse(textBox1.Text));
                 if ( textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "" && textBox7.Text != " ")
                 {
                     s.Supplier_Name = textBox2.Text;
@@ -66,6 +72,11 @@ namespace WindowsFormsApp1
                     s.website= textBox7.Text;
                     model.SaveChanges();
                     textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text = textBox6.Text = textBox7.Text = "";
+                    listBox1.Items.Clear();
+                    foreach (Supplier sup in model.Suppliers)
+                    {
+                        listBox1.Items.Add(sup.Supplier_Id + "  " + sup.Supplier_Name + "  " + sup.phone + "  " + sup.fax + "  " + sup.mobile + "  " + sup.mail + "  " + sup.website);
+                    }
                 }
                 else { MessageBox.Show("Fill all the textboxes"); }
             }
@@ -88,11 +99,11 @@ namespace WindowsFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Supplier s = model.Suppliers.Find(int.Parse(textBox1.Text));
-            if (s != null)
+           
+            if (textBox1.Text != "")
             {
+                Supplier s = model.Suppliers.Find(int.Parse(textBox1.Text));
 
-               
                 foreach (Supply_permission sp in model.Supply_permission)
                 {
                     if (sp.Supplier_Id == s.Supplier_Id)
@@ -111,7 +122,13 @@ namespace WindowsFormsApp1
                 model.Suppliers.Remove(s);
                 model.SaveChanges();
                 textBox1.Text = "";
+                listBox1.Items.Clear();
+                foreach (Supplier sup in model.Suppliers)
+                {
+                    listBox1.Items.Add(sup.Supplier_Id + "  " + sup.Supplier_Name + "  " + sup.phone + "  " + sup.fax + "  " + sup.mobile + "  " + sup.mail + "  " + sup.website);
+                }
             }
+            else { MessageBox.Show("fill the id"); }
         }
     }
 }

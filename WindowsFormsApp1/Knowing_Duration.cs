@@ -67,10 +67,11 @@ namespace WindowsFormsApp1
                                   Expiary_Date = sp.Expiray_Date
                               });
                 listBox1.Items.Clear();
-                foreach (var stoc in report)
-                {
-                    listBox1.Items.Add("Item with id " + stoc.item_ID + " and name " + stoc.Item_Name + " in Stock number  " + stoc.Stock_ID + " and name " + stoc.Stock_Name + " with quantaty " + stoc.quantity + " and production_date " + stoc.production_Date + " expiary_date " + stoc.Expiary_Date);
-                }
+                    foreach (var stoc in report)
+                    {
+                        listBox1.Items.Add("Item with id " + stoc.item_ID + " and name " + stoc.Item_Name + " in Stock number  " + stoc.Stock_ID + " and name " + stoc.Stock_Name + " ,quantaty " + stoc.quantity + " ,production_date " + stoc.production_Date);
+                        listBox1.Items.Add(" expiary_date " + stoc.Expiary_Date);
+                    }
             }
             else { MessageBox.Show("Plz enter the info"); }
         }

@@ -21,16 +21,16 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear(); 
-            foreach (Stock s in model.Stocks)
+            foreach (Stock st in model.Stocks)
             {
-                listBox1.Items.Add(s.Stock_Id+" "+s.Stock_Name+" "+s.Manager_Id+" "+s.Manager_Name);
+                listBox1.Items.Add(st.Stock_Id+" "+st.Stock_Name+" "+st.Manager_Id+" "+st.Manager_Name);
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Stock stock = new Stock();
-            if(textBox1!= null && textBox2!= null&&textBox3!=null && textBox4!=null) 
+            if(textBox1.Text!= "" && textBox2.Text!= "" && textBox3.Text!="" && textBox4.Text!="") 
             {
                 Stock s = model.Stocks.Find(int.Parse(textBox1.Text));
                 if(s==null)
@@ -42,6 +42,11 @@ namespace WindowsFormsApp1
                     model.Stocks.Add(stock);
                     model.SaveChanges();
                     textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = "";
+                    listBox1.Items.Clear();
+                    foreach (Stock st in model.Stocks)
+                    {
+                        listBox1.Items.Add(st.Stock_Id + " " + st.Stock_Name + " " + st.Manager_Id + " " + st.Manager_Name);
+                    }
                 }
                 else { MessageBox.Show("the stock is already exist"); }
             }
@@ -50,16 +55,22 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Stock s = model.Stocks.Find(int.Parse(textBox1.Text));
-            if(s != null)
+            
+            if(textBox1.Text!="")
             {
-                if(textBox2.Text!=" "&&textBox3.Text!=" "&&textBox4.Text!=" ")
+                Stock s = model.Stocks.Find(int.Parse(textBox1.Text));
+                if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "")
                 {
                     s.Stock_Name=textBox2.Text;
                     s.Manager_Id= int.Parse(textBox3.Text);
                     s.Manager_Name= textBox4.Text;
                     model.SaveChanges();
                     textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = " ";
+                    listBox1.Items.Clear();
+                    foreach (Stock st in model.Stocks)
+                    {
+                        listBox1.Items.Add(st.Stock_Id + " " + st.Stock_Name + " " + st.Manager_Id + " " + st.Manager_Name);
+                    }
                 }
                 else { MessageBox.Show("fill all the textboxes"); }
             }
@@ -68,11 +79,11 @@ namespace WindowsFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Stock s = model.Stocks.Find(int.Parse(textBox1.Text));
-            if (s!=null)
+           
+            if (textBox1.Text != "")
             {
-
-                foreach(Stock_Item si in model.Stock_Item)
+                Stock s = model.Stocks.Find(int.Parse(textBox1.Text));
+                foreach (Stock_Item si in model.Stock_Item)
                 {
                     if (si.Stock_id == s.Stock_Id)
                     {
@@ -97,6 +108,11 @@ namespace WindowsFormsApp1
                 model.Stocks.Remove(s);
                 model.SaveChanges();
                 textBox1.Text = "";
+                listBox1.Items.Clear();
+                foreach (Stock st in model.Stocks)
+                {
+                    listBox1.Items.Add(st.Stock_Id + " " + st.Stock_Name + " " + st.Manager_Id + " " + st.Manager_Name);
+                }
             }
         }
 
